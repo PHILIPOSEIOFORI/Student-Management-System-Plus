@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.sm.ReportsController"
+            prefWidth="950" prefHeight="600">
+
+    <top>
+        <VBox spacing="12" style="-fx-padding: 15;">
+
+            <HBox spacing="10">
+                <Button text="← Back to Main Menu"
+                        onAction="#goBack"/>
+
+                <Label text="Reports Dashboard"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+            </HBox>
+
+            <GridPane hgap="20" vgap="10">
+
+                <Label text="Total Students:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="totalLabel" text="0"
+                       style="-fx-font-weight: bold;"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Active:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <Label fx:id="activeLabel" text="0"
+                       style="-fx-font-weight: bold;"
+                       GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Inactive:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="inactiveLabel" text="0"
+                       style="-fx-font-weight: bold;"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Average GPA:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <Label fx:id="averageGpaLabel" text="0.00"
+                       style="-fx-font-weight: bold;"
+                       GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Top Performers" onAction="#showTopPerformers"/>
+                <Button text="At-Risk Students" onAction="#showAtRisk"/>
+                <Button text="Show All" onAction="#showAll"/>
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="reportTable">
+            <columns>
+                <TableColumn fx:id="idCol" text="Student ID"/>
+                <TableColumn fx:id="nameCol" text="Full Name"/>
+                <TableColumn fx:id="programmeCol" text="Programme"/>
+                <TableColumn fx:id="levelCol" text="Level"/>
+                <TableColumn fx:id="gpaCol" text="GPA"/>
+                <TableColumn fx:id="statusCol" text="Status"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
